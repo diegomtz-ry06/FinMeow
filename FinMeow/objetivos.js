@@ -25,3 +25,45 @@ function mostrarResumen() {
 function goHome() {
   window.location.href = "Inicio.html";
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const goalForm = document.getElementById('goalForm');
+
+    goalForm.addEventListener('submit', async (event) => {
+        
+        event.preventDefault();
+
+        const nombre = document.getElementById('goalName').value;
+        const monto = document.getElementById('goalAmount').value;
+        const fecha = document.getElementById('goalDate').value;
+        const tipo = document.querySelector('input[name="goalType"]:checked').value;
+
+        try {
+            const response = await fetch('guardar_objetivo.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre: nombre,
+                    monto: monto,
+                    fecha: fecha,
+                    tipo: tipo
+                })
+            });
+
+            const result = await response.json();
+            alert(result.message);
+
+            if (result.success) {
+                goalForm.reset();
+
+            }
+
+        } catch (error) {
+            console.error('Error al enviar el formulario:', error);
+            alert('Error de conexión. Inténtalo de nuevo.');
+        }
+    });
+});

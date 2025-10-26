@@ -57,3 +57,64 @@ function goHome() {
   window.location.href = "Inicio.html";
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const scoreDisplay = document.getElementById('score-racha-display');
+    const historialContainer = document.getElementById('retos-container');
+
+    async function cargarDatosRetos() {
+        if (!scoreDisplay || !historialContainer) {
+            console.log("No se están en la página de retos, no se cargan datos.");
+            return;
+        }
+        historialContainer.innerHTML = '<p>Cargando historial de retos...</p>';
+        scoreDisplay.textContent = '...';
+
+        try {
+
+            const response = await fetch('obtener_retos.php');
+            const data = await response.json();
+
+            if (data.success === false) {
+                throw new Error(data.message);
+            }
+
+            scoreDisplay.textContent = data.score;
+
+            if (data.historial.length === 0) {
+                historialContainer.innerHTML = '<p>Aún no tienes eventos en tu historial. ¡Completa un reto o realiza un pago!</p>';
+                return;
+            }
+
+            let html = '<ul>';
+            data.historial.forEach(item => {
+
+                let iconClass = 'evento-neutral';
+                if (item.evento_tipo.includes('Pago a Tiempo') || item.evento_tipo.includes('Meta Cumplida')) {
+                    iconClass = 'evento-positivo'; // Verde
+                } else if (item.evento_tipo.includes('Pago Atrasado')) {
+                    iconClass = 'evento-negativo'; // Rojo
+                }
+                const fecha = new Date(item.fecha_evento).toLocaleDateString('es-MX', {
+                    year: 'numeric', month: 'long', day: 'numeric'
+                });
+
+                html += `
+                    <li class="evento-racha ${iconClass}">
+                        <span class="fecha-evento">${fecha}</span>
+                        <span class="desc-evento">${item.descripcion}</span>
+                        <span class="tipo-evento">(${item.evento_tipo})</span>
+                    </li>
+                `;
+            });
+            html += '</ul>';
+            historialContainer.innerHTML = html;
+
+        } catch (error) {
+            console.error('Error al cargar datos de retos:', error);
+            scoreDisplay.textContent = 'Error';
+            historialContainer.innerHTML = `<p class="error">${error.message}</p>`;
+        }
+    }
+    cargarDatosRetos();
+});
