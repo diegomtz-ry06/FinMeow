@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f0ff, #e3d9ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* === Contenedor principal === */
+.app-container {
+  width: 100%;
+  max-width: 450px;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* === Encabezado === */
+.app-header {
+  background: linear-gradient(135deg, #9c27b0, #ba68c8);
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  padding: 18px;
+  font-weight: 700;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+}
+
+/* === Caja de lección === */
+.lesson-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  overflow-y: auto;
+  gap: 16px;
+  background: #fdfaff;
+  border-radius: 20px;
+  box-shadow: inset 0 0 10px rgba(156, 39, 176, 0.05);
+}
+
+/* === Menú de botones === */
+.lesson-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.lesson-menu button {
+  padding: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ce93d8, #ba68c8);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(186, 104, 200, 0.25);
+}
+
+.lesson-menu button:hover {
+  background: linear-gradient(135deg, #ba68c8, #9c27b0);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.35);
+}
+
+/* === Título del contenido === */
+.lesson-content h2 {
+  color: #9c27b0;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* === Ayuda visual === */
+.visual-aid {
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+  padding: 14px;
+  border-radius: 14px;
+  text-align: center;
+  margin-bottom: 12px;
+  box-shadow: inset 0 0 8px rgba(156, 39, 176, 0.1);
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a148c;
+}
+
+/* === Opciones de respuesta === */
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.opciones button {
+  padding: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #e1bee7, #ce93d8);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(186, 104, 200, 0.2);
+}
+
+.opciones button:hover {
+  background: linear-gradient(135deg, #ce93d8, #ba68c8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(156, 39, 176, 0.3);
+}
+
+/* === Feedback === */
+.feedback {
+  font-weight: 700;
+  color: #6a1b9a;
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* === Botones de acción principales (Sig Pregunta e Inicio) === */
+.btn-action {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #9c27b0, #ba68c8);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.btn-action:hover {
+  background: linear-gradient(135deg, #ba68c8, #9c27b0);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.35);
+}
+
+/* === Encabezado con perfil y logo === */
+.app-header {
+  background: linear-gradient(135deg, #5f2eea, #8c52ff);
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 10px rgba(95, 46, 234, 0.4);
+}
+
+.header-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Icono de perfil (izquierda) */
+.icono-perfil {
+  position: absolute;
+  left: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+}
+
+.icono-perfil img {
+  width: 22px;
+  height: 22px;
+}
+
+.icono-perfil:hover {
+  background: #f3e5f5;
+  transform: scale(1.1);
+}
+
+/* Logo (derecha) */
+.logo {
+  position: absolute;
+  right: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 4px;
+  object-fit: contain;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
