@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinFinanzas</title>
+  <link rel="stylesheet" href="finanzas.css" />
+  <script defer src="finanzas.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <a href="perfil.html" class="icono-perfil" title="Ver perfil">
+          <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Perfil">
+        </a>
+        <h1>Finanzas</h1>
+        <img src="logo.png" class="logo" alt="Logo">
+      </div>
+    </header>
+
+    <main class="finance-box">
+      <form id="finance-form">
+        <!-- Encabezado con imagen de perfil -->
+        <div class="tab-header">
+          <h2 class="tab-title">Registro financiero</h2>
+        </div>
+
+        <label for="card">Tarjeta:</label>
+        <input type="text" id="card" placeholder="Nombre de la tarjeta" />
+
+        <label for="due-date">Fecha límite:</label>
+        <input type="date" id="due-date" />
+
+        <!-- SECCIÓN RECORDATORIO -->
+        <div class="reminder-section">
+          <label>
+            <input type="checkbox" id="reminder" onclick="toggleFrequency()" />
+            Recordatorio
+          </label>
+
+          <div id="frequency-options" class="hidden">
+            <p>¿Cada cuánto quieres tu recordatorio?</p>
+            <label><input type="checkbox" /> Cada día</label>
+            <label><input type="checkbox" /> Cada 2 días</label>
+            <label><input type="checkbox" /> Cada 3 días</label>
+            <label><input type="checkbox" /> Cada 4 días</label>
+            <label><input type="checkbox" /> 1 semana antes</label>
+            <label><input type="checkbox" /> 2 días antes</label>
+            <label><input type="checkbox" /> 1 día antes</label>
+          </div>
+        </div>
+
+        <label for="credits">Créditos:</label>
+        <input type="number" id="credits" placeholder="Cantidad de créditos" />
+
+        <label for="pending">Pago pendiente:</label>
+        <input type="number" id="pending" placeholder="Monto pendiente" />
+
+        <button type="submit" class="btn-primary">
+          <span class="icon">💾</span>Guardar
+        </button>
+
+        <button type="button" onclick="goHome()" class="btn-primary">🏠 Inicio</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
+
