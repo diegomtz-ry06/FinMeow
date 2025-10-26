@@ -1,5 +1,5 @@
 # FinMeow
------
+
 # Asistente Crediticio FinMeow
 
 **Proyecto para el Hackathon "Hack Mty" (Octubre 2025).**
